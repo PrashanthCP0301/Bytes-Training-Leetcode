@@ -1,0 +1,14 @@
+class Solution {
+    private static final int MOD=1000000007;
+    public int numTilings(int n) {
+        if(n==1) return 1;
+        if(n==2) return 2;
+        long[] l= new long[n+1];
+        l[0]=1;l[1]=1;l[2]=2;
+        for(int i=3;i<=n;i++){
+            l[i]=(2*l[i-1]+l[i-3])%MOD;
+        }
+        return (int)l[n];
+
+    }
+}
